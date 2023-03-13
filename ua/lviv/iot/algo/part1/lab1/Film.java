@@ -36,16 +36,13 @@ public class Film {
 	}
 
 	public static void main(String[] args) {
-		Film[] films;
-		films = new Film[4];
+		Film[] films = {new Film(),
+			new Film("Avengers: Endgame", "Anthony & Joe Russo", 2019, 10080000, 1200000),
+			Film.getInstance(),
+			Film.getInstance()};
 
-		films[0] = new Film();
-		films[1] = new Film("Avengers: Endgame", "Anthony & Joe Russo", 2019, 10080000, 1200000);
-		films[2] = Film.getInstance();
-		films[3] = Film.getInstance();
-
-		for (int i = 0; i < films.length; i++) {
-			System.out.println(films[i]);
+		for (Film film : films) {
+			System.out.println(film);
 		}
 	}
 }
