@@ -1,12 +1,18 @@
 package ua.lviv.iot.algo.part1.lab1;
-import lombok.*;
+
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Setter;
+import lombok.Getter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 @ToString
-public class Film {
+
+public class Film extends Video {
 	private String title;
 	private String director;
 	private int year;
@@ -31,18 +37,7 @@ public class Film {
 	}
 
 	public float getCurrentRating() {
-		float currentRating = this.rating / this.marks;
+		float currentRating = (this.marks != 0) ? this.rating / this.marks : 0;
 		return currentRating;
-	}
-
-	public static void main(String[] args) {
-		Film[] films = {new Film(),
-			new Film("Avengers: Endgame", "Anthony & Joe Russo", 2019, 10080000, 1200000),
-			Film.getInstance(),
-			Film.getInstance()};
-
-		for (Film film : films) {
-			System.out.println(film);
-		}
 	}
 }
