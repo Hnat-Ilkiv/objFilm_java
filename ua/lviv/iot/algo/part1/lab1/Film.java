@@ -1,23 +1,23 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
-import lombok.Getter;
 import lombok.ToString;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
-@ToString
+@ToString(callSuper = true)
 
 public class Film extends Video {
-	private String title;
-	private String director;
-	private int year;
 	private int rating;
 	private int marks;
+
+	Film() {}
+
+	Film(String fileTitle, String videoTitle, String director, int year, int rating, int marks) {
+		this.fileTitle = fileTitle;
+		this.videoTitle = videoTitle;
+		this.director = director;
+		this.year = year;
+		this.rating = rating;
+		this.marks = marks;
+	}
 
 	private static Film instance = new Film();
 
@@ -36,8 +36,8 @@ public class Film extends Video {
 		this.marks++;
 	}
 
+	@Override
 	public float getCurrentRating() {
-		float currentRating = (this.marks != 0) ? this.rating / this.marks : 0;
-		return currentRating;
+		return (this.marks != 0) ? (float)this.rating / (float)this.marks : 0;
 	}
 }
