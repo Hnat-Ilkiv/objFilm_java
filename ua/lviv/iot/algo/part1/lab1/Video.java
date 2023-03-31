@@ -4,8 +4,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public abstract class Video {
 	protected String fileTitle;
@@ -14,4 +12,8 @@ public abstract class Video {
 	protected int year;
 
 	public abstract float getCurrentRating();
+
+	public int getYear() {
+		return year;
+	}
 }

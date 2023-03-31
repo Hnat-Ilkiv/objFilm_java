@@ -4,27 +4,27 @@ import lombok.ToString;
 
 @ToString(callSuper = true)
 
-public class Clip extends Video {
-	private String songTitle;
-	private String songwriter;
+public class Podcast extends Video {
+	private String podcastHost;
+	private String podcastTopic;
 	private int likes;
 	private int views;
 
-	Clip() {}
-	Clip(String fileTitle, 
+	Podcast() {}
+	Podcast(String fileTitle, 
 			String videoTitle, 
 			String director, 
 			int year, 
-			String songTitle, 
-			String songwriter, 
+			String podcastHost, 
+			String podcastTopic, 
 			int likes, 
 			int views) {
 		this.fileTitle = fileTitle;
 		this.videoTitle = videoTitle;
 		this.director = director;
 		this.year = year;
-		this.songTitle = songTitle;
-		this.songwriter = songwriter;
+		this.podcastHost = podcastHost;
+		this.podcastTopic = podcastTopic;
 		this.likes = likes;
 		this.views = views;
 	}
