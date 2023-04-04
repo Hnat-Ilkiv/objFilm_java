@@ -10,7 +10,7 @@ public class Podcast extends Video {
 	private int likes;
 	private int views;
 
-	Podcast() {}
+	Podcast() {super();}
 	Podcast(String fileTitle, 
 			String videoTitle, 
 			String director, 
@@ -19,10 +19,7 @@ public class Podcast extends Video {
 			String podcastTopic, 
 			int likes, 
 			int views) {
-		this.fileTitle = fileTitle;
-		this.videoTitle = videoTitle;
-		this.director = director;
-		this.year = year;
+		super(fileTitle, videoTitle, director, year);
 		this.podcastHost = podcastHost;
 		this.podcastTopic = podcastTopic;
 		this.likes = likes;

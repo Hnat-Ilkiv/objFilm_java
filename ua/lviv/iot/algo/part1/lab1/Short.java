@@ -8,16 +8,13 @@ import lombok.ToString;
 public class Short extends Video {
 	private int likes;
 
-	Short() {}
+	Short() {super();}
 	Short(String fileTitle, 
 			String videoTitle, 
 			String director, 
 			int year, 
 			int likes) {
-		this.fileTitle = fileTitle;
-		this.videoTitle = videoTitle;
-		this.director = director;
-		this.year = year;
+		super(fileTitle, videoTitle, director, year);
 		this.likes = likes;
 	}
 

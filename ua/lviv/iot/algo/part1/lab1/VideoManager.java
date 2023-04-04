@@ -16,14 +16,12 @@ public class VideoManager {
 	public List<Video> findAllVideosCreatedIn(int year) {
 		return videos.stream().
 			filter(video -> video.getYear() == year).
-			//forEach(System.out::println);
 			collect(Collectors.toList());
 	}
 
 	public List<Video> findAllVideosWithHigherRatingThen(int currentRating) {
 		return videos.stream().
 			filter(video -> video.getCurrentRating() >= currentRating).
-			//forEach(video -> System.out.println(video + " " + video.getCurrentRating()));
 			collect(Collectors.toList());
 	}
 
@@ -39,7 +37,7 @@ public class VideoManager {
 		myVideoManager.addVideo(new Short());
 		myVideoManager.addVideo(new Short("short_tick-tock.avi", "Tick Tock", "jfid3748", 2023, 94763));
 
-		System.out.println("Print all fideos in manager:");
+		System.out.println("Print all fideos in manager:"); 
 		for (Video video : myVideoManager.getVideos()) {
 			System.out.println(video.toString());
 		}

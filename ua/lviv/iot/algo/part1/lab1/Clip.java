@@ -10,7 +10,7 @@ public class Clip extends Video {
 	private int likes;
 	private int views;
 
-	Clip() {}
+	Clip() {super();}
 	Clip(String fileTitle, 
 			String videoTitle, 
 			String director, 
@@ -19,10 +19,7 @@ public class Clip extends Video {
 			String songwriter, 
 			int likes, 
 			int views) {
-		this.fileTitle = fileTitle;
-		this.videoTitle = videoTitle;
-		this.director = director;
-		this.year = year;
+		super(fileTitle, videoTitle, director, year);
 		this.songTitle = songTitle;
 		this.songwriter = songwriter;
 		this.likes = likes;

@@ -8,7 +8,7 @@ public class Film extends Video {
 	private int rating;
 	private int marks;
 
-	Film() {}
+	Film() {super();}
 
 	Film(String fileTitle, 
 			String videoTitle, 
@@ -16,10 +16,7 @@ public class Film extends Video {
 			int year, 
 			int rating, 
 			int marks) {
-		this.fileTitle = fileTitle;
-		this.videoTitle = videoTitle;
-		this.director = director;
-		this.year = year;
+		super(fileTitle, videoTitle, director, year);
 		this.rating = rating;
 		this.marks = marks;
 	}
