@@ -1,27 +1,27 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot;
 
 import lombok.ToString;
 
 @ToString(callSuper = true)
 
-public class Podcast extends Video {
-	private String podcastHost;
-	private String podcastTopic;
+public class Clip extends Video {
+	private String songTitle;
+	private String songwriter;
 	private int likes;
 	private int views;
 
-	Podcast() {super();}
-	Podcast(String fileTitle, 
+	Clip() {super();}
+	Clip(String fileTitle, 
 			String videoTitle, 
 			String director, 
 			int year, 
-			String podcastHost, 
-			String podcastTopic, 
+			String songTitle, 
+			String songwriter, 
 			int likes, 
 			int views) {
 		super(fileTitle, videoTitle, director, year);
-		this.podcastHost = podcastHost;
-		this.podcastTopic = podcastTopic;
+		this.songTitle = songTitle;
+		this.songwriter = songwriter;
 		this.likes = likes;
 		this.views = views;
 	}

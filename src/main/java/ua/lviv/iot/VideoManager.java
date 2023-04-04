@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot;
 
 import java.util.List;
 import java.util.ArrayList;
