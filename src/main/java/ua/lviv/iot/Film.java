@@ -1,7 +1,9 @@
 package ua.lviv.iot;
 
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @ToString(callSuper = true)
 
 public class Film extends Video {
@@ -19,12 +21,6 @@ public class Film extends Video {
 		super(fileTitle, videoTitle, director, year);
 		this.rating = rating;
 		this.marks = marks;
-	}
-
-	private static Film instance = new Film();
-
-	public static Film getInstance() {
-		return instance;
 	}
 
 	public void rate(int rating) {

@@ -1,7 +1,9 @@
 package ua.lviv.iot;
 
+import lombok.Setter;
 import lombok.ToString;
 
+@Setter
 @ToString(callSuper = true)
 
 public class Short extends Video {
