@@ -16,6 +16,7 @@ public class FilmTest {
 		assertEquals(8, film.getRating());
 		assertEquals(5, film.getMarks());
 	}
+	
 	@Test
 	public void testRateWithValidData() {
 		Film film = new Film();
@@ -30,6 +31,7 @@ public class FilmTest {
 		assertEquals(1, film.getRating());
 		assertEquals(1, film.getMarks());
 	}
+	
 	@Test
 	public void testRateWithInvalidDataGreaterThanTen() {
 		Film film = new Film();
@@ -37,11 +39,13 @@ public class FilmTest {
 		assertEquals(10, film.getRating());
 		assertEquals(1, film.getMarks());
 	}
+	
 	@Test
 	public void testGetCurrentRatingWithZeroMarksAndRating() {
 		Film film = new Film();
 		assertEquals(0, film.getCurrentRating(), 0.01);
 	}
+	
 	@Test
 	public void testGetCurrentRatingWithValidData() {
 		Film film = new Film();
@@ -49,12 +53,14 @@ public class FilmTest {
 		film.rate(8);
 		assertEquals(6.5, film.getCurrentRating(), 0.01);
 	}
+	
 	    @Test
     public void testSetRating() {
         Film film = new Film();
         film.setRating(8);
         assertEquals(8, film.getRating());
     }
+    
 	    @Test
     public void testSetMarks() {
         Film film = new Film();

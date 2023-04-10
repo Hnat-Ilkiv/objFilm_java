@@ -11,7 +11,9 @@ public class VideoManager {
 		videos.add(video);
 	}
 
-	public List<Video> getVideos() {return videos;}
+	public List<Video> getVideos() {
+		return new ArrayList<Video>(this.videos);
+	}
 
 	public List<Video> findAllVideosCreatedIn(int year) {
 		return videos.stream().
