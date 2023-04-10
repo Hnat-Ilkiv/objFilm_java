@@ -15,7 +15,7 @@
 		<junitVersion>5.9.2</junitVersion>
 		<lombokVersion>1.18.26</lombokVersion>
 		<jacocoVersion>0.8.8</jacocoVersion>
-		<spotbugsVersion>4.7.3</spotbugsVersion>
+		<spotbugsVersion>4.4.2</spotbugsVersion>
 		<compilerVersion>3.8.1</compilerVersion>
 		<checkstyleVersion>3.1.2</checkstyleVersion>
 		<pmdVersion>3.20.0</pmdVersion>

@@ -26,7 +26,9 @@ public class VideoManagerTest {
 	@Test
 	public void testAddVideo() {
 		videoManager.addVideo(video);
-		assertEquals(1, videoManager.getVideos().size());
+		List<Video> videos = videoManager.getVideos();
+		assertEquals(1, videos.size());
+		assertTrue(videos.contains(video));
 	}
 
 	@Test
