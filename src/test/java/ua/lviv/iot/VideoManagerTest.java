@@ -2,64 +2,45 @@ package ua.lviv.iot;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
 import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
+
 
 public class VideoManagerTest {
-/*
-		Film film = new Film();
-		Clip clip = new Clip();
-		Podcast podcast = new Podcast();
-		Short shorts = new Short();
-*/
+@Test
+public void testAddVideo() {
+    Video video = new Short();
+    VideoManager videoManager = new VideoManager();
+    videoManager.addVideo(video);
+    assertEquals(1, videoManager.getVideos().size());
+}
 
-	@Test
-	public void testAddVideo() {
-		Film film = new Film();
-		VideoManager manager = new VideoManager();
-		manager.addVideo(film);
-		List<Video> videosManager = manager.getVideos();
-		List<Video> videos = new ArrayList<Video>(Arrays.asList(film));
+@Test
+public void testFindAllVideosCreatedIn() {
+    VideoManager videoManager = new VideoManager();
+    Video video1 = new Film("file1", "title1", "director1", 2021, 200, 50);
+    Video video2 = new Clip("file2", "title2", "director2", 2022, "songtitle", "songwriter", 500, 650);
+    Video video3 = new Podcast("file3", "title3", "director3", 2021, "podcasthost", "podcasttopic", 800, 930);
+    videoManager.addVideo(video1);
+    videoManager.addVideo(video2);
+    videoManager.addVideo(video3);
+    List<Video> videos = videoManager.findAllVideosCreatedIn(2021);
+    assertEquals(2, videos.size());
+    assertTrue(videos.contains(video1));
+    assertTrue(videos.contains(video3));
+}
+@Test
+public void testFindAllVideosWithHigherRatingThen() {
+    VideoManager videoManager = new VideoManager();
+    Video video1 = new Film("file1", "title1", "director1", 2021, 200, 50);
+    Video video2 = new Clip("file2", "title2", "director2", 2022, "songtitle", "songwriter", 500, 650);
+    Video video3 = new Podcast("file3", "title3", "director3", 2021, "podcasthost", "podcasttopic", 800, 930);
+    videoManager.addVideo(video1);
+    videoManager.addVideo(video2);
+    videoManager.addVideo(video3);
+    List<Video> videos = videoManager.findAllVideosWithHigherRatingThen(4);
+    assertEquals(1, videos.size());
+    assertTrue(videos.contains(video1));
+}
 
-		assertEquals(videos.get(0), videosManager.get(0));
-		assertArrayEquals(videos.toArray(), videosManager.toArray());
-	}
-
-	@Test
-	public void testFindAllVideosCreatedIn() {
-		Film film = new Film();
-		Clip clip = new Clip();
-		Podcast podcast = new Podcast();
-		Short shorts = new Short();
-		List<Video> videos = new ArrayList<Video>(Arrays.asList(film, clip, podcast,shorts));
-		
-		VideoManager manager = new VideoManager();
-		manager.addVideo(film);
-		manager.addVideo(clip);
-		manager.addVideo(podcast);
-		manager.addVideo(shorts);
-		
-		List<Video> result = manager.findAllVideosCreatedIn(0);
-		assertArrayEquals(videos.toArray(), result.toArray());
-	}
-	
-		@Test
-	public void testFindAllVideosWithHigherRatingThen() {
-		Film film = new Film();
-		Clip clip = new Clip();
-		Podcast podcast = new Podcast();
-		Short shorts = new Short();
-		List<Video> videos = new ArrayList<Video>(Arrays.asList(film, clip, podcast,shorts));
-		
-		VideoManager manager = new VideoManager();
-		manager.addVideo(film);
-		manager.addVideo(clip);
-		manager.addVideo(podcast);
-		manager.addVideo(shorts);
-		
-		List<Video> result = manager.findAllVideosWithHigherRatingThen(0);
-		assertArrayEquals(videos.toArray(), result.toArray());
-	}
 }

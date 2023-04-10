@@ -1,8 +1,10 @@
 package ua.lviv.iot;
 
+import lombok.Setter;
 import lombok.Getter;
 import lombok.ToString;
 
+@Setter
 @Getter
 @ToString(callSuper = true)
 
