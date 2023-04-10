@@ -9,27 +9,32 @@ import lombok.ToString;
 @ToString(callSuper = true)
 
 public class Film extends Video {
+	public static final int MIN_RATTING = 1;
+	public static final int MAX_PATTING = 10;
+
 	private int rating;
 	private int marks;
 
-	Film() {super();}
+	Film() {
+		super();
+	}
 
-	Film(String fileTitle, 
-			String videoTitle, 
-			String director, 
-			int year, 
-			int rating, 
-			int marks) {
+	Film(final String fileTitle,
+			final String videoTitle,
+			final String director,
+			final int year,
+			final int rating,
+			final int marks) {
 		super(fileTitle, videoTitle, director, year);
 		this.rating = rating;
 		this.marks = marks;
 	}
 
-	public void rate(int rating) {
-		if (rating <= 1) {
+	public final void rate(final int rating) {
+		if (rating <= MIN_RATTING) {
 			this.rating++;
-		} else if (rating >= 10) {
-			this.rating += 10;
+		} else if (rating >= MAX_PATTING) {
+			this.rating += MAX_PATTING;
 		} else {
 			this.rating += rating;
 		}
@@ -37,7 +42,7 @@ public class Film extends Video {
 	}
 
 	@Override
-	public float getCurrentRating() {
-		return (this.marks != 0) ? (float)this.rating / (float)this.marks : 0;
+	public final float getCurrentRating() {
+		return (this.marks != 0) ? (float) this.rating / (float) this.marks : 0;
 	}
 }

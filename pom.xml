@@ -11,19 +11,23 @@
 	<url>http://maven.apache.org</url>
 	
 	<properties>
-		<lombokVersion>1.18.26</lombokVersion>
+		<javaVersion>17</javaVersion>
 		<junitVersion>5.9.2</junitVersion>
-		<spotbugsVersion>4.2.0</spotbugsVersion>
+		<lombokVersion>1.18.26</lombokVersion>
+		<jacocoVersion>0.8.8</jacocoVersion>
+		<spotbugsVersion>4.7.3</spotbugsVersion>
 		<compilerVersion>3.8.1</compilerVersion>
-		<jacocoVersion>0.8.7</jacocoVersion>
-		<Version></Version>
+		<checkstyleVersion>3.1.2</checkstyleVersion>
+		<pmdVersion>3.20.0</pmdVersion>
+		<siteVersion>3.7.1</siteVersion>
+		<reportsVersion>3.4.2</reportsVersion>
 		<Version></Version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.source>${javaVersion}</maven.compiler.source>
+        <maven.compiler.target>${javaVersion}</maven.compiler.target>
 	</properties>
 	
     <dependencies>
@@ -51,31 +55,31 @@
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.8</version>
+            <version>${jacocoVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs</artifactId>
-            <version>4.7.3</version>
+            <version>${spotbugsVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
-            <version>3.1.2</version>
+            <version>${checkstyleVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-pmd-plugin</artifactId>
-            <version>3.20.0</version>
+            <version>${pmdVersion}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-site-plugin</artifactId>
-            <version>3.7.1</version>
+            <version>${siteVersion}</version>
         </dependency>   
 	</dependencies>
 	
@@ -84,7 +88,7 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.4.2</version>
+                <version>${spotbugsVersion}</version>
                 <executions>
                     <execution>
                         <phase>verify</phase>
@@ -98,7 +102,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
+                <version>${jacocoVersion}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -117,13 +121,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.7.1</version>
+                <version>${siteVersion}</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.4.2</version>
+                <version>${reportsVersion}</version>
             </plugin>
         </plugins>
     </build>
@@ -133,28 +137,37 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
+                <version>${checkstyleVersion}</version>
+<!--
                 <configuration>
                     <configLocation>google_checks.xml</configLocation>
                 </configuration>
+-->
+                <reportSets>
+                	<reportSet>
+						<reports>
+							<report>checkstyle</report>
+            			</reports>
+                   </reportSet>
+               	</reportSets>
             </plugin>
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.20.0</version>
+                <version>${pmdVersion}</version>
             </plugin>
             
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.4.2</version>
+                <version>${spotbugsVersion}</version>
             </plugin>
             
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.8</version>
+                <version>${jacocoVersion}</version>
             </plugin>
         </plugins>
     </reporting>

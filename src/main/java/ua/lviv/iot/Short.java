@@ -11,18 +11,21 @@ import lombok.ToString;
 public class Short extends Video {
 	private int likes;
 
-	Short() {super();}
-	Short(String fileTitle, 
-			String videoTitle, 
-			String director, 
-			int year, 
-			int likes) {
+	Short() {
+		super();
+	}
+
+	Short(final String fileTitle,
+			final String videoTitle,
+			final String director,
+			final int year,
+			final int likes) {
 		super(fileTitle, videoTitle, director, year);
 		this.likes = likes;
 	}
 
 	@Override
-	public float getCurrentRating() {
+	public final float getCurrentRating() {
 		return this.likes;
 	}
 }

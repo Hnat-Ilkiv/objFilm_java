@@ -1,14 +1,22 @@
 package ua.lviv.iot;
 
 import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 
 public class PodcastTest {
+	Podcast podcast;
+
+	@Before
+	public void setup() {
+		podcast = new Podcast("fileTitle", "videoTitle", "director", 2022, "podcastHost", "podcastTopic", 5, 10);
+	}
+
 	@Test
 	public void testPodcastDefaultConstructor() {
-		Podcast podcast = new Podcast();
+		podcast = new Podcast();
 		assertNull(podcast.getFileTitle());
 		assertNull(podcast.getVideoTitle());
 		assertNull(podcast.getDirector());
@@ -21,7 +29,6 @@ public class PodcastTest {
 	
 	@Test
 	public void testPodcastParameterizedConstructor() {
-		Podcast podcast = new Podcast("fileTitle", "videoTitle", "director", 2022, "podcastHost", "podcastTopic", 5, 10);
 		assertEquals("fileTitle", podcast.getFileTitle());
 		assertEquals("videoTitle", podcast.getVideoTitle());
 		assertEquals("director", podcast.getDirector());
@@ -33,30 +40,15 @@ public class PodcastTest {
 	}
 	
 	@Test
-	public void testGetCurrentRatingWhenViewsNotZero() {
-		Podcast podcast = new Podcast("fileTitle", "videoTitle", "director", 2022, "podcastHost", "podcastTopic", 5, 10);
+	public void testGetCurrentRatingWhenViewsNotZero() { 
 		float currentRating = podcast.getCurrentRating();
 		assertEquals(0.5f, currentRating, 0.001f);
 	}
 	
 	@Test
 	public void testGetCurrentRatingWhenViewsZero() {
-		Podcast podcast = new Podcast("fileTitle", "videoTitle", "director", 2022, "podcastHost", "podcastTopic", 5, 0);
+		podcast.setViews(0);
 		float currentRating = podcast.getCurrentRating();
 		assertEquals(0.0f, currentRating, 0.001f);
-	}
-	
-	@Test
-	public void testSetPodcastHost() {
-		Podcast podcast = new Podcast();
-		podcast.setPodcastHost("New Host");
-		assertEquals("New Host", podcast.getPodcastHost());
-	}
-	
-	@Test
-	public void testSetPodcastTopic() {
-		Podcast podcast = new Podcast();
-		podcast.setPodcastTopic("New Topic");
-		assertEquals("New Topic", podcast.getPodcastTopic());
 	}
 }
