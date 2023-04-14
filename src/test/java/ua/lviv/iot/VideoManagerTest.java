@@ -8,11 +8,11 @@ import java.util.List;
 
 
 public class VideoManagerTest {
-	VideoManager videoManager;
-	Video video1;
-	Video video2;
-	Video video3;
-	Video video;
+	private VideoManager videoManager;
+	private Video video1;
+	private Video video2;
+	private Video video3;
+	private Video video;
 	
 	@Before
 	public void setup() {

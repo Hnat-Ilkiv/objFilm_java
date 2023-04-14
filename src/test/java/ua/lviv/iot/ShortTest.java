@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 
 public class ShortTest {
-	Short shortVideo;
+	private Short shortVideo;
 
 	@Before
 	public void setup() {

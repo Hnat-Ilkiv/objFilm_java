@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class ClipTest {
-	Clip clip;
+	private Clip clip;
 
 	@Before
 	public void setup() {

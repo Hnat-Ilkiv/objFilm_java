@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 
 public class PodcastTest {
-	Podcast podcast;
+	private Podcast podcast;
 
 	@Before
 	public void setup() {

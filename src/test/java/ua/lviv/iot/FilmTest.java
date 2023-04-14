@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class FilmTest {
-	Film film;
+	private Film film;
 	
 	@Before
 	public void setup() {
