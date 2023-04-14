@@ -45,4 +45,12 @@ public class Film extends Video {
 	public final float getCurrentRating() {
 		return (this.marks != 0) ? (float) this.rating / (float) this.marks : 0;
 	}
+
+	public String getHeaders() {
+		return super.getHeaders() + ",rating,marks";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + this.rating + "," + this.marks;
+	}
 }

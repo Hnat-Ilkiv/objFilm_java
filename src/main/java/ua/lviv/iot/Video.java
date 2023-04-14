@@ -18,4 +18,12 @@ public abstract class Video {
 	private int year;
 
 	public abstract float getCurrentRating();
+
+	public String getHeaders() {
+		return "fileTitle,videoTitle,director,year";
+	}
+
+	public String toCSV() {
+		return this.fileTitle + "," + this.videoTitle + "," + this.director + "," + this.year;
+	}
 }

@@ -37,4 +37,12 @@ public class Clip extends Video {
 	public final float getCurrentRating() {
 		return (this.views != 0) ? (float) this.likes / (float) this.views : 0;
 	}
+
+	public String getHeaders() {
+		return super.getHeaders() + ",songTitle,songwriter,likes,views";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + this.songTitle + "," + this.songwriter + "," + this.likes + "," + this.views;
+	}
 }

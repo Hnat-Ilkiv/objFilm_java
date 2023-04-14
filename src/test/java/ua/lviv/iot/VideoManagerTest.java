@@ -13,7 +13,7 @@ public class VideoManagerTest {
 	private Video video2;
 	private Video video3;
 	private Video video;
-	
+
 	@Before
 	public void setup() {
 		videoManager = new VideoManager();
@@ -41,7 +41,7 @@ public class VideoManagerTest {
 		assertTrue(videos.contains(video1));
 		assertTrue(videos.contains(video3));
 	}
-	
+
 	@Test
 	public void testFindAllVideosWithHigherRatingThen() {
 		videoManager.addVideo(video1);
@@ -50,5 +50,17 @@ public class VideoManagerTest {
 		List<Video> videos = videoManager.findAllVideosWithHigherRatingThen(4);
 		assertEquals(1, videos.size());
 		assertTrue(videos.contains(video1));
+	}
+
+	@Test
+	public void testGetHeaders() {
+		videoManager.addVideo(video);
+		videoManager.addVideo(video1);
+		videoManager.addVideo(video2);
+		videoManager.addVideo(video3);
+		for (Video eachVideo : videoManager.getVideos()) {
+			System.out.println(eachVideo.getHeaders());
+			System.out.println(eachVideo.toCSV());
+		}
 	}
 }

@@ -37,4 +37,12 @@ public class Podcast extends Video {
 	public final float getCurrentRating() {
 		return (this.views != 0) ? (float) this.likes / (float) this.views : 0;
 	}
+
+	public String getHeaders() {
+		return super.getHeaders() + ",podcastHost,podcastTopic,likes,views";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + this.podcastHost + "," + this.podcastHost + "," + this.likes + "," + this.views;
+	}
 }

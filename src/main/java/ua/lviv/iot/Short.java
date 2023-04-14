@@ -28,4 +28,12 @@ public class Short extends Video {
 	public final float getCurrentRating() {
 		return this.likes;
 	}
+
+	public String getHeaders() {
+		return super.getHeaders() + ",likes";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + this.likes;
+	}
 }
