@@ -51,16 +51,4 @@ public class VideoManagerTest {
 		assertEquals(1, videos.size());
 		assertTrue(videos.contains(video1));
 	}
-
-	@Test
-	public void testGetHeaders() {
-		videoManager.addVideo(video);
-		videoManager.addVideo(video1);
-		videoManager.addVideo(video2);
-		videoManager.addVideo(video3);
-		for (Video eachVideo : videoManager.getVideos()) {
-			System.out.println(eachVideo.getHeaders());
-			System.out.println(eachVideo.toCSV());
-		}
-	}
 }

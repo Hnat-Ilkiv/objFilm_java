@@ -38,10 +38,4 @@ public class ShortTest {
 		float currentRating = shortVideo.getCurrentRating();
 		assertEquals(5.0f, currentRating, 0.001f);
 	}
-
-	@Test
-	public void testGetHeaders() {
-		System.out.println(shortVideo.getHeaders());
-		System.out.println(shortVideo.toCSV());
-	}
 }

@@ -38,10 +38,12 @@ public class Clip extends Video {
 		return (this.views != 0) ? (float) this.likes / (float) this.views : 0;
 	}
 
+	@Override
 	public String getHeaders() {
 		return super.getHeaders() + ",songTitle,songwriter,likes,views";
 	}
 
+	@Override
 	public String toCSV() {
 		return super.toCSV() + "," + this.songTitle + "," + this.songwriter + "," + this.likes + "," + this.views;
 	}

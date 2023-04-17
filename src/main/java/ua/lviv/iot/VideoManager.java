@@ -1,5 +1,6 @@
 package ua.lviv.iot;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -25,5 +26,23 @@ public class VideoManager {
 		return videos.stream().
 			filter(video -> video.getCurrentRating() >= currentRating).
 			collect(Collectors.toList());
+	}
+
+	public List<Video> getSortedVideosList() {
+		return videos.stream()
+				.sorted(Comparator.comparingInt(video -> {
+					if (video instanceof Film) {
+						return 0;
+					} else if (video instanceof Clip) {
+						return 1;
+					} else if (video instanceof Podcast) {
+						return 2;
+					} else if (video instanceof Short) {
+						return 3;
+					} else {
+						return 4;
+					}
+				}))
+				.toList();
 	}
 }

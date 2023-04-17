@@ -38,10 +38,12 @@ public class Podcast extends Video {
 		return (this.views != 0) ? (float) this.likes / (float) this.views : 0;
 	}
 
+	@Override
 	public String getHeaders() {
 		return super.getHeaders() + ",podcastHost,podcastTopic,likes,views";
 	}
 
+	@Override
 	public String toCSV() {
 		return super.toCSV() + "," + this.podcastHost + "," + this.podcastHost + "," + this.likes + "," + this.views;
 	}

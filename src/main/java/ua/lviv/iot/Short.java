@@ -29,10 +29,12 @@ public class Short extends Video {
 		return this.likes;
 	}
 
+	@Override
 	public String getHeaders() {
 		return super.getHeaders() + ",likes";
 	}
 
+	@Override
 	public String toCSV() {
 		return super.toCSV() + "," + this.likes;
 	}
