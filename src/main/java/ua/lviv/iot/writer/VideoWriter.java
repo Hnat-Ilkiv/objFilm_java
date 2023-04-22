@@ -1,21 +1,27 @@
-package ua.lviv.iot;
+package ua.lviv.iot.writer;
+
+import ua.lviv.iot.models.Video;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 public class VideoWriter {
-    public String writeToFile(final List<Video> videos, final String fileName) {
+    public void writeToFile(final List<Video> videos, final String fileName) {
         if (videos.isEmpty()) {
-            return null;
+            File file = new File(fileName);
         } else {
+            List<Video> sortedVideo = videos.stream()
+                    .sorted(Comparator.comparing(video -> video.getClass().getName()))
+                    .toList();
+
             File file = new File(fileName);
             try {
                 FileWriter fw = new FileWriter(fileName);
-                Video videoType = videos.get(0);
+                Video videoType = sortedVideo.get(0);
                 fw.write(videoType.getHeaders() + "\n");
-                for (var video : videos) {
+                for (var video : sortedVideo) {
                     if (videoType.getClass() != video.getClass()) {
                         videoType = video;
                         fw.write(videoType.getHeaders() + "\n");
@@ -26,7 +32,6 @@ public class VideoWriter {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return fileName;
         }
     }
 }
